@@ -1,0 +1,90 @@
+ <!DOCTYPE HTML>
+<html lang='en'>
+
+<head>
+	<meta charset = "UTF=8">
+	<title> Flight fare predictior </title>
+	<style type="text/css">
+		form{
+			margin-left: 600px;	
+		}
+		h1{
+			text-align: center;
+			background-color: lightgray;
+			padding: 0px 20px 0px;
+		}
+		label{
+			padding-bottom: 20px;
+		}
+		.features{
+			padding-bottom: 20px;
+			margin-bottom: 20px;
+		}
+
+		button{
+			padding: 10px;
+			font-size: 15px;
+		}
+
+	</style>
+</head>
+
+<body>
+	<div class="main_content">
+		<h1> FLIGHT FARE PREDICTION </h1>
+		<form action="{{ url_for('predict')}}"method="post">
+       
+			<input class="features" type="datetime-local" name="departure_time" placeholder="Departure Time" id="departure_time" required="required"/><br>
+
+    		<input class="features" type="datetime-local" name="arrival_time" placeholder="Arrival Time" id="arrival_time" required="required"/><br>
+
+			<label for="airline">AIRLINE</label>
+			<select class="features" name="airline" id="airline" required="required">
+			<option value="Air India">AIR INDIA</option>
+			<option value="GoAir">GO AIR </option>
+			<option value="IndiGo">INDIGO</option>
+			<option value="Jet Airways">JET AIRWAYS</option>
+			<option value="Multiple Carriers">MULTIPLE CARRIERS</option>
+			<option value="SpiceJet">SPICE JET</option>
+			<option value="Vistara">VISTARA</option>
+			<option value="Air Asia">AIR ASIA</option>
+			</select>
+			<br>
+
+    		<label for="source">SOURCE</label>
+			<select class="features" name="source" id="source" required="required">
+			<option value="Delhi">DELHI</option>
+			<option value="Kolkata">KOLKATA </option>
+			<option value="Chennai">CHENNAI</option>
+			<option value="Mumbai">MUMBAI</option>
+			<option value="Banglore">BANGLORE</option>
+			</select>
+			<br>
+
+			<label for="destination">DESTINATION</label>
+			<select class="features" name="destination" id="destination" required="required">
+			<option value="Delhi">DELHI</option>
+			<option value="Kolkata">KOLKATA </option>
+			<option value="Cochin">COCHIN</option>
+			<option value="New Delhi">NEW DELHI</option>
+			<option value="Banglore">BANGLORE</option>
+			<option value="Hyderabad">HYDERABAD</option>
+			</select>
+			<br>
+
+    		<input class="features" type="number" name="total_stops" placeholder="TOTAL STOPS" id="total_stops" required="required"/><br>
+
+        	<button type="SUBMIT" class="btn btn-primary btn-block btn-large">predict</button>
+    	</form>
+
+  		<br>
+   		<br>
+   		
+   		<div id="prediction_text">
+   		{{ prediction_text }}
+   		</div>
+
+ 	</div>
+
+</body>
+</html> 
