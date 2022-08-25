@@ -16,8 +16,6 @@ app = Flask(__name__, template_folder="template")
 
 model = pickle.load(open("modek.pkl", "rb"))
 
-scaler = pickle.load(open("scaler.pkl","rb"))
-
 @app.route("/", methods=["GET"])
 def home():
     return render_template("/index.html")
